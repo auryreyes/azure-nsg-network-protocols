@@ -107,7 +107,10 @@ Back in Wireshark, filter for RDP traffic only (tcp.port == 3389) and observe th
 Traffic is always being transmitted since the RDP (protocol) shows you a live stream from one computer to another.
 
 <h3>!ATTENTION!</h3>
+
 **Lab Cleanup**
-Close your Remote Desktop connection
-Delete the Resource Group(s) created at the beginning of this lab
-Verify Resource Group Deletion
+- Close your Remote Desktop connection
+- Delete the Resource Group(s) created at the beginning of this lab
+- Verify Resource Group Deletion
+
+Thank you for completing this tutorial. I hope you learned more about network protocols and how network traffic operates as a result.
