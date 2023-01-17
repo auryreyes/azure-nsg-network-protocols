@@ -108,9 +108,6 @@ Traffic is always being transmitted since the RDP (protocol) shows you a live st
 
 <h3>!ATTENTION!</h3>
 
-**Lab Cleanup**
-- Close your Remote Desktop connection
-- Delete the Resource Group(s) created at the beginning of this lab
-- Verify Resource Group Deletion
+Because the majority of Azure services are pay-as-you-go, be sure to remove ALL resource groups and virtual machines if you want to keep your free $200 credits.
 
 Thank you for completing this tutorial! I hope you learned more about network protocols and how network traffic operates as a result.
