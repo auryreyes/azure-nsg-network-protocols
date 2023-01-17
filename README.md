@@ -113,4 +113,4 @@ Traffic is always being transmitted since the RDP (protocol) shows you a live st
 - Delete the Resource Group(s) created at the beginning of this lab
 - Verify Resource Group Deletion
 
-Thank you for completing this tutorial. I hope you learned more about network protocols and how network traffic operates as a result.
+Thank you for completing this tutorial! I hope you learned more about network protocols and how network traffic operates as a result.
