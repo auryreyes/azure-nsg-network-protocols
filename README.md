@@ -41,6 +41,8 @@ We have to create two virtual machines (VMs) in Azure.
 
 After creating your VMs in Azure, use Remote Desktop Connection to access the Windows virtual machine. Within your Windows 10 VM, Install Wireshark.
 
+Wireshark is a network protocol analyzer that can be used to see packets being captured from a network connection. Find the Linux VM's private Internet Protocol (IP) address in Azure first before continuing. Find the Linux VM's private Internet Protocol (IP) address in Azure first before continuing.
+
 <p>
 <img src="https://i.imgur.com/aoq1txh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -50,11 +52,12 @@ After creating your VMs in Azure, use Remote Desktop Connection to access the Wi
 
 <h3>Step 2: Observe ICMP Traffic</h3>
 
-Wireshark is a network protocol analyzer that can be used to see packets being captured from a network connection. Find the Linux VM's private Internet Protocol (IP) address in Azure first before continuing. Find the Linux VM's private Internet Protocol (IP) address in Azure first before continuing.
-
 Internet Control Message Protocol (ICMP) is a network protocol that sends information about problems with network connectivity.
 
-In Wireshark filter for “icmp” traffic only by typing it in the green search bar. Retrieve the private IP address of the Ubuntu VM in Azure which is (10.0.0.5). In VM1 open up powershell and try to ping the private IP address. Observe the ping requests and replies within Wireshark.
+**ICMP**
+- In Wireshark filter for “icmp” traffic only by typing it in the green search bar
+- Retrieve the private IP address of the Ubuntu VM in Azure which is (10.0.0.5)
+- In VM1 open up powershell and try to ping the private IP address. Observe the ping requests and replies within Wireshark
 
 <p>
 <img src="https://i.imgur.com/Yqx7XvH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -80,7 +83,7 @@ Now set a perpetual/non-stop ping from your Windows 10 VM to your Ubuntu VM usin
 
 The Azure portal has Network Security Groups (NSGs). You can establish security rules for your resources, effectively creating a firewall.
 
-Disable incoming (inbound) ICMP traffic. 
+Disable incoming (inbound) ICMP traffic
 - Head to “Network Security Groups” in Azure Portal
 - Select “VM2-nsg”
 - Click “Inbound security rules”
@@ -129,7 +132,11 @@ Stop the ping activity by pressing “Control + C”
 
 Secure Shell Protocol (SSH) is a network protocol that enables access to another machine's Command Line Interface (CLI).
 
-Back in Wireshark, filter for SSH traffic only. Then in Powershell type “ssh” + username of VM2 “@10.0.0.5” then press [Enter]. You will be prompted to log in so use your VM2 login information. Type commands (cd, pwd, etc) into the linux SSH connection and observe SSH traffic spam in WireShark. Exit the SSH connection by typing ‘exit’ and pressing [Enter].
+**SSH**
+- Back in Wireshark, filter for SSH traffic only. 
+- Then in Powershell type “ssh” + username of VM2 “@10.0.0.5” then press [Enter]. 
+- You will be prompted to log in so use your VM2 login information. Type commands (cd, pwd, etc) into the linux SSH connection and observe SSH traffic spam in WireShark. 
+- Exit the SSH connection by typing ‘exit’ and pressing [Enter].
 
 <p>
 <img src="https://i.imgur.com/LFgsXiE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -142,7 +149,9 @@ Back in Wireshark, filter for SSH traffic only. Then in Powershell type “ssh�
 
 Dynamic Host Configuration Protocol (DHCP) is a network protocol that assigns an IP address to devices when they are first connected to the network.
 
-Back in Wireshark, filter for DHCP traffic only. From your Windows 10 VM, attempt to issue your VM a new IP address from the command line (ipconfig /renew). Observe the DHCP traffic appearing in WireShark.
+**DHCP**
+- Back in Wireshark, filter for DHCP traffic only. 
+- From your Windows 10 VM, attempt to issue your VM a new IP address from the command line (ipconfig /renew). Observe the DHCP traffic appearing in WireShark.
 
 <p>
 <img src="https://i.imgur.com/WzwYmLT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -152,7 +161,9 @@ Back in Wireshark, filter for DHCP traffic only. From your Windows 10 VM, attemp
 
 Domain Name System is a network protocol that converts Fully Qualified Domain Names (FQDNs) into IP addresses.
 
-Back in Wireshark, filter for DNS traffic only. From your Windows 10 VM within a command line, use nslookup to see google.com's IP address. Observe the DNS traffic being shown in WireShark.
+**DNS**
+- Back in Wireshark, filter for DNS traffic only. 
+- From your Windows 10 VM within a command line, use nslookup to see google.com's IP address. Observe the DNS traffic being shown in WireShark.
 
 <p>
 <img src="https://i.imgur.com/b7y2zXR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -162,7 +173,9 @@ Back in Wireshark, filter for DNS traffic only. From your Windows 10 VM within a
 
 Remote Desktop Protocol (RDP) is used when remotely connecting from one computer to another to gain a remote desktop Graphical User Interface (GUI).
 
-Back in Wireshark, filter for RDP traffic only (tcp.port == 3389) and observe the traffic.
+**RDP**
+- Back in Wireshark, filter for RDP traffic only (tcp.port == 3389) and observe the traffic. 
+
 Traffic is always being transmitted since the RDP (protocol) shows you a live stream from one computer to another.
 
 <p>
